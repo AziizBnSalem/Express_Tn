@@ -1,1 +1,138 @@
-/* You can add global styles to this file, and also import other style files */
+// Global Toastr Styles
+.toast-container {
+    position: fixed;
+    top: 20px;  // Distance from the top of the screen
+    right: 20px; // Distance from the right side of the screen
+    z-index: 9999; // Ensure toasts appear above other content
+    pointer-events: none; // Prevent the toasts from interfering with user interactions
+  }
+  
+  // General Toast Styling
+  .toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;  // White text for all types of toasts
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    // Animation for the toast to fade in
+    &.ng-trigger {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    &.ng-trigger.ng-trigger-toastEnter {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+  
+    // Toast icon styling (optional, for those with icons)
+    .toast-icon {
+      margin-right: 15px;
+    }
+  
+    // Close button in the toast
+    .toast-close-button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+  
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  
+  // Success Toast
+  .toast-success {
+    background-color: #4caf50; // Green background for success toasts
+    border-left: 5px solid #388e3c; // Darker green left border
+    .toast-close-button {
+      color: #388e3c;
+    }
+  }
+  
+  // Error Toast
+  .toast-error {
+    background-color: #f44336; // Red background for error toasts
+    border-left: 5px solid #d32f2f; // Darker red left border
+    .toast-close-button {
+      color: #d32f2f;
+    }
+  }
+  
+  // Info Toast
+  .toast-info {
+    background-color: #2196f3; // Blue background for info toasts
+    border-left: 5px solid #1976d2; // Darker blue left border
+    .toast-close-button {
+      color: #1976d2;
+    }
+  }
+  
+  // Warning Toast
+  .toast-warning {
+    background-color: #ff9800; // Orange background for warning toasts
+    border-left: 5px solid #f57c00; // Darker orange left border
+    .toast-close-button {
+      color: #f57c00;
+    }
+  }
+  
+  // Toast container animation - fade-in/fade-out for a smooth transition
+  .toast-container {
+    transition: opacity 0.5s ease;
+  }
+  
+  // Toast positioning & responsiveness for mobile
+  @media (max-width: 768px) {
+    .toast-container {
+      right: 10px; // Adjust for smaller screens
+    }
+  
+    .toast {
+      font-size: 14px; // Slightly smaller text on mobile
+    }
+  }
+  
+  // Toastr Positioning Adjustments for different placements
+  .toast-top-left {
+    top: 20px;
+    left: 20px;
+    right: unset;
+  }
+  
+  .toast-top-right {
+    top: 20px;
+    right: 20px;
+    left: unset;
+  }
+  
+  .toast-bottom-left {
+    bottom: 20px;
+    left: 20px;
+    right: unset;
+  }
+  
+  .toast-bottom-right {
+    bottom: 20px;
+    right: 20px;
+    left: unset;
+  }
+  
+  .toast-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  

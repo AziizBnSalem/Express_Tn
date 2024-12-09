@@ -1,0 +1,172 @@
+/* General container styling */
+.home-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #054652; /* Navbar background color */
+  }
+  
+  .navbar-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* Logo text color */
+  }
+  
+  /* Right-side navbar items */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust space between items */
+  }
+  
+  /* Create parcel container */
+  .create-parcel-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+    color: white; /* Text color */
+    font-size: 16px; /* Text size */
+  }
+  
+  /* Plus icon styling (only border, no background) */
+  .plus-icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ffffff; /* Green border around the circle */
+    color: #ffffff; /* Color of the plus sign */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Circle shape */
+    font-size: 18px; /* Plus sign size */
+    margin-right: 10px; /* Space between icon and text */
+  }
+  
+  /* Create parcel text styling */
+  .create-parcel-text {
+    font-size: 16px; /* Text size */
+    color: white; /* Text color */
+  }
+  
+  /* Profile icon styling */
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Main content area styling */
+  .main-content {
+    position: relative;
+    flex-grow: 1;
+    padding: 1px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    opacity: 0.7;
+    z-index: -1;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+      h1 {
+        position: absolute; /* Position the heading absolutely within the container */
+        top: 100px; /* Position the text in the vertical middle */
+        left: 10%; /* Position the text in the horizontal middle */
+        transform: translate(-50%, -50%); /* Adjust for exact centering */
+        color: #054652; /* Text color */
+        font-size: 2rem; /* Adjust the font size */
+        text-align: center; /* Center the text */
+        z-index: 1; /* Make sure the text appears above the image */
+        margin: 0; /* Remove default margins */
+      }
+    
+    
+    // Centered Navigation bar
+    .nav-buttons {
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 20%; // You can adjust the width for the buttons' layout
+      gap: 0rem;
+  
+      .nav-button {
+        display: flex;
+        align-items: center;
+        background-color: rgb(255, 255, 255); // Background color for the buttons
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        
+        .icon {
+          width: 20px;
+          height: 20px;
+          margin-right: 8px; // Space between icon and text
+        }
+  
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .date-picker {
+          background: none;
+          border: none;
+          color: white;
+          font-size: 1rem;
+        }
+      }
+    }
+  
+    // Search Button in the Right Corner
+    .search-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #333;
+      }
+    }
+  }
+  

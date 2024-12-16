@@ -5,54 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="home-container">
-        <!-- Navbar -->
-        <nav class="navbar">
-          <!-- Left-side navbar (optional if you have other items) -->
-          <div class="navbar-logo">
-          </div>
-          
-          <!-- Right-side navbar -->
-          <div class="navbar-right">
-            <!-- Create parcel with a plus icon and label -->
-            <div class="create-parcel-container">
-              <div class="plus-icon">
-                <span>+</span> <!-- Plus icon inside a circle -->
-              </div>
-              <span class="create-parcel-text">Créer un colis</span> <!-- Label text -->
-            </div>
-      
-            <!-- Profile Icon -->
-            <div class="profile-icon">
-              <img src="assets/Pictures/signin.png" alt="Profile" />
-            </div>
-          </div>
-        </nav>
-      
-        <!-- Main Content (Empty for now) -->
-        <div class="main-content">
-          <img src="./assets/Pictures/9fecb3413dc5c7a5e59339b616108da1-removebg-preview.png" alt="pic">
-          <h1>Mes Colis</h1>
-        
-          <!-- Centered Navigation -->
-          <nav class="nav-buttons">
-            <button class="nav-button">
-              <img src="./assets/icons/depart-icon.png" alt="Depart icon" class="icon"> Depart
-            </button>
-            <button class="nav-button">
-              <img src="./assets/icons/destination-icon.png" alt="Destination icon" class="icon"> Destination
-            </button>
-            <button class="nav-button">
-              <input type="date" class="date-picker">Date
-            </button>
-            <button class="nav-button">Search</button>
-
-          </nav>
-        
-          <!-- Search Button in the Right Corner -->
-        </div>
-        
-      </div>
+  <div class="home-container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <!-- Left-side navbar (optional if you have other items) -->
+      <div class="navbar-logo"></div>
     
-</body>
-</html>
+      <!-- Right-side navbar -->
+      <div class="navbar-right">
+        <!-- Create parcel with a plus icon and label -->
+        <div class="create-parcel-container">
+          <div class="plus-icon">
+            <span>+</span> <!-- Plus icon inside a circle -->
+          </div>
+          <span class="create-parcel-text">Créer un colis</span> <!-- Label text -->
+        </div>
+    
+        <!-- Profile Icon with Dropdown -->
+        <div class="profile-dropdown">
+          <!-- Hidden checkbox for toggle functionality -->
+          <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle-checkbox" />
+          <label for="dropdown-toggle" class="profile-icon">
+            <img src="assets/pictures/signin.png" alt="Profile" />
+          </label>
+          
+          <!-- Dropdown menu -->
+          <ul class="dropdown-menu">
+            <li><a>Profile</a></li>
+            <li><a href="/login">Déconnection</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+  
+    <!-- Main Content (Empty for now) -->
+    <div class="main-content">
+        <h1>Mes Colis</h1>
+      <nav class="nav-buttons">
+        <button class="nav-button">
+            <img src="./assets/pictures/search.png" alt="Depart icon" class="icon"> Depart
+        </button>
+        <button class="nav-button">
+            <img src="./assets/pictures/location.png" alt="Destination icon" class="icon"> Destination
+        </button>
+        <button class="nav-button">
+            <img src="./assets/pictures/date.png" alt="Destination icon" class="icon"> Date
+        </button>
+        <button class="buttons">Search</button>          
+    </nav>  
+
+        <!-- Header Tabs -->
+        <div class="tabs">
+            <div class="tab active">À Traiter</div>
+            <div class="tab">Livrés</div>
+        </div>
+        <div class="container">
+
+        <!-- Calendar Section -->
+        <div class="calendar">
+            <span class="arrow">&lt;</span>
+            <span class="arrow">&gt;</span>
+
+            <div class="calendar-header">
+                <span>June 2024</span>
+                <span class="arrow">&gt;</span>
+            </div>
+            <div class="calendar-grid">
+                <div class="day">SUN</div>
+                <div class="day">MON</div>
+                <div class="day">TUE</div>
+                <div class="day">WED</div>
+                <div class="day">THU</div>
+                <div class="day">FRI</div>
+                <div class="day">SAT</div>
+    
+                <!-- Dates -->
+                <div class="date">2</div>
+                <div class="date">3</div>
+                <div class="date">4</div>
+                <div class="date">5</div>
+                <div class="date">6</div>
+                <div class="date">7</div>
+                <div class="date">8</div>
+                <!-- Second Row -->
+                <div class="date">9</div>
+                <div class="date">10</div>
+                <div class="date">11</div>
+                <div class="date">12</div>
+                <div class="date">13</div>
+                <div class="date">14</div>
+                <div class="date">15</div>
+                <!-- Third Row -->
+                <div class="date">16</div>
+                <div class="date">17</div>
+                <div class="date">18</div>
+                <div class="date">19</div>
+                <div class="date">20</div>
+                <div class="date">21</div>
+                <div class="date">22</div>
+                <div class="date">23</div>
+                <div class="date">24</div>
+                <div class="date">25</div>
+                <div class="date selected">26</div>
+                <div class="date">27</div>
+                <div class="date">28</div>
+                <div class="date">29</div>
+                <div class="date">30</div>
+            </div>
+        </div>
+
+        <!-- Client Section -->
+        <div class="client-details">
+            <div class="profile">
+                <img src="./assets/pictures/profilepc.png" alt="Client Profile" class="profile-image"/>
+                <div class="client-info">
+                    <h3>Client: Meriem Lahmer</h3>
+                    <span>2 Colis</span>
+                </div>
+            </div>
+            <h4>Détail De Colis :</h4>
+
+            <div class="Form">
+            <div class="package-list">
+                <button class="package-button">Colis N° XXXXXXXXXX</button>
+                <button class="package-button">
+                    Colis N° XXXXXXXXXX <span class="arrow-right">&gt;</span>
+                </button>
+            </div>
+
+            <!-- Package Details -->
+            <div class="package-details">
+                <img src="./assets/pictures/box.jpg" alt="Package Icon" class="package-icon"/>
+                <div class="package-info">
+                    <p>Poids :</p>
+                    <p>Dimension :</p>
+                    <p>Contenu :</p>
+                </div>
+                <button class="message-icon">
+                    <img src="./assets/pictures/chat.png" alt="Message Icon"/>
+                </button>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="accept">Accepter</button>
+            <button class="reject">Refuser</button>
+            <button class="hold">Mettre en attente</button>
+        </div>
+    </div>    
+</div>
+</div>

@@ -1,172 +1,435 @@
-/* General container styling */
 .home-container {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  /* Navbar styling */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #054652; /* Navbar background color */
-  }
-  
-  .navbar-logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: white; /* Logo text color */
-  }
-  
-  /* Right-side navbar items */
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: flex-start; /* Move content up */
+  padding-top: 20px; /* Add some space at the top */
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #054652;
+  width: 100%;
+
   .navbar-right {
     display: flex;
     align-items: center;
-    gap: 20px; /* Adjust space between items */
+    gap: 20px;
   }
-  
-  /* Create parcel container */
-  .create-parcel-container {
-    display: flex;
-    align-items: center;
-    cursor: pointer; /* Change cursor to indicate it's clickable */
-    color: white; /* Text color */
-    font-size: 16px; /* Text size */
-  }
-  
-  /* Plus icon styling (only border, no background) */
-  .plus-icon {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ffffff; /* Green border around the circle */
-    color: #ffffff; /* Color of the plus sign */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%; /* Circle shape */
-    font-size: 18px; /* Plus sign size */
-    margin-right: 10px; /* Space between icon and text */
-  }
-  
-  /* Create parcel text styling */
-  .create-parcel-text {
-    font-size: 16px; /* Text size */
-    color: white; /* Text color */
-  }
-  
-  /* Profile icon styling */
-  .profile-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .profile-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Main content area styling */
-  .main-content {
+
+  .profile-dropdown {
     position: relative;
-    flex-grow: 1;
-    padding: 1px;
+
+    .dropdown-toggle-checkbox {
+      display: none; /* Hidden checkbox */
+    }
+
+    .profile-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 50px; /* Adjust to appear below the icon */
+      right: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      z-index: 10;
+      cursor: pointer;
+
+
+      li {
+        padding: 10px 20px;
+        text-align: left;
+        white-space: nowrap;
+
+        a {
+          text-decoration: none;
+          color: #054652;
+          font-size: 14px;
+
+          &:hover {
+            color: white;
+            background-color: #054652;
+          }
+        }
+      }
+    }
+
+    /* Toggle dropdown visibility when the checkbox is checked */
+    .dropdown-toggle-checkbox:checked + .profile-icon + .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Create parcel container */
+.create-parcel-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+
+/* Plus icon styling (only border, no background) */
+.plus-icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Create parcel text styling */
+.create-parcel-text {
+  font-size: 16px;
+  color: white;
+}
+
+/* Profile icon styling */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main content area styling */
+.main-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+
+  &::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    height: 100rem;
     width: 100%;
-    height: 100%;
-    background-size: contain;
+    background-image: url('/assets/pictures/9fecb3413dc5c7a5e59339b616108da1-removebg-preview.png');
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
-    opacity: 0.7;
+    opacity: 0.3; /* Apply opacity to background only */
     z-index: -1;
-    
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+  }
+}
+
+
+
+/* Main content text styling */
+h1 {
+  position: absolute;
+  top: 100px;
+  left: 20%;
+  transform: translateX(-50%);
+  color: #054652;
+  font-size: 2rem;
+  text-align: center;
+  z-index: 1;
+  margin: 0;
+}
+
+/* Centered Navigation bar */
+.nav-buttons {
+  position: absolute;
+  top: 200px; /* Adjust top positioning */
+  left: 40%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+  gap: 0rem;
+
+  .nav-button {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    gap: 3px;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      order: 1;
+      margin-right: 60px;
     }
-  
-      h1 {
-        position: absolute; /* Position the heading absolutely within the container */
-        top: 100px; /* Position the text in the vertical middle */
-        left: 10%; /* Position the text in the horizontal middle */
-        transform: translate(-50%, -50%); /* Adjust for exact centering */
-        color: #054652; /* Text color */
-        font-size: 2rem; /* Adjust the font size */
-        text-align: center; /* Center the text */
-        z-index: 1; /* Make sure the text appears above the image */
-        margin: 0; /* Remove default margins */
+
+    &:hover {
+      background-color: rgba(219, 219, 219, 0.7);
+    }
+
+    .date-picker {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Action Buttons */
+.buttons {
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
+  padding: 10px 100px;
+  font-size: 1rem;
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
+}
+
+/* General Styles */
+.container {
+  width: 60%;
+  height: 165%;
+  margin: 420px auto; /* Add margin to move it down from the nav */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Tabs */
+.tabs {
+  position: absolute; /* Position relative to the nearest positioned parent */
+  top: 23rem; /* Adjust distance from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center alignment correction */
+  display: flex;
+  gap: 20px;
+
+  .tab {
+    padding: 20px 80px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #0000003a;
+    border-radius: 8px 8px 0 0;
+
+    &.active {
+      color: #000000;
+      background-color: #B0F0545E;
+      border-radius: 8px 8px 0 0;
+    }
+  }
+}
+
+/* Calendar */
+.calendar {
+  text-align: left;
+
+  .calendar-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    margin-right: 15rem;
+    margin-bottom: 50px;
+    .arrow {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.9rem;
+
+    .day {
+      color: #959595be;
+      text-align: center; /* Center text horizontally */
+      font-size: 0.9rem; /* Make it smaller */
+    }
+
+    .date {
+      display: inline-flex; /* Centering content */
+      align-items: center;
+      justify-content: center;
+      width: 30px; /* Reduced width */
+      height: 30px; /* Reduced height */
+      padding: 0; /* Remove padding */
+      margin: 6px 50px 0 40px; /* Smaller horizontal spacing */
+      color: #333;
+      font-size: 0.9rem; /* Adjust text size */
+      font-weight: bold;
+
+      &.selected {
+        background-color: #a4dfff7c;
+        color: #007AFF;
+        border-radius: 50%; /* Perfect circle */
+        font-weight: bold;
       }
-    
-    
-    // Centered Navigation bar
-    .nav-buttons {
-      position: absolute;
-      top: 150px;
-      left: 50%;
-      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Client Details */
+.client-details {
+  padding: 130px;
+
+  .profile {
+    display: flex;
+    align-items: center;
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+  }
+
+  h4 {
+    margin-top: 40px;
+  }
+
+  .package-list {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+
+    .package-button {
+      background-color: #054652;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 13px;
+      margin: 15px 0;
+      font-size: 1.1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 20%; // You can adjust the width for the buttons' layout
-      gap: 0rem;
-  
-      .nav-button {
-        display: flex;
-        align-items: center;
-        background-color: rgb(255, 255, 255); // Background color for the buttons
-        color: rgb(0, 0, 0);
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        
-        .icon {
-          width: 20px;
-          height: 20px;
-          margin-right: 8px; // Space between icon and text
-        }
-  
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.7);
-        }
-        
-        .date-picker {
-          background: none;
-          border: none;
-          color: white;
-          font-size: 1rem;
-        }
-      }
-    }
-  
-    // Search Button in the Right Corner
-    .search-button {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: black;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 8px;
       cursor: pointer;
-  
-      &:hover {
-        background-color: #333;
+
+      .arrow-right {
+        font-size: 1.2rem;
       }
     }
   }
-  
+
+  .package-details {
+    display: flex;
+    align-items: center;
+
+    .package-icon {
+      width: 120px;
+      margin-right: 30px;
+    }
+
+    .package-info {
+      p {
+        margin: 10px 0;
+      }
+    }
+
+    .message-icon {
+      background: none;
+      border: none;
+      margin-left: auto;
+      background-color: #054652;
+      border-radius: 10px;
+      cursor: pointer;
+
+
+      img {
+        width: 100px;
+        height: 70px;
+      }
+    }
+  }
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &.accept {
+      background-color: #54a6d3;
+      color: white;
+    }
+
+    &.reject {
+      background-color: #a94442;
+      color: white;
+    }
+
+    &.hold {
+      background-color: #555;
+      color: white;
+    }
+  }
+}

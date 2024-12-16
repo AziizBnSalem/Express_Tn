@@ -1,25 +1,32 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, FormsModule,ToastrModule], // Add required modules
-  
+  imports: [CommonModule, FormsModule, ToastrModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
- // Include FormsModule here
 })
 export class SignupComponent {
   name: string = '';
   email: string = '';
   password: string = '';
-confirmPassword: any;
-termsAccepted: any;
+  confirmPassword: string = '';
+  termsAccepted: any;
+
+  constructor(private readonly toastr: ToastrService, private readonly router: Router) {} // Inject Router
 
   onSignup() {
-    console.log('Signup successful', this.name, this.email, this.password);
+    if (this.password === this.confirmPassword) {
+      console.log('Signup successful:', this.email);
+      this.toastr.success('Signup successful!', 'Welcome!');
+      this.router.navigate(['/login']); // Redirect to Login page
+    } else {
+      this.toastr.error('Passwords do not match.', 'Error');
+    }
   }
 }

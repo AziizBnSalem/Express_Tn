@@ -15,11 +15,18 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private readonly toastr: ToastrService, private readonly router: Router) {} // Inject Router
+  constructor(private readonly toastr: ToastrService, private readonly router: Router) {}
 
   onLogin() {
-    console.log('Login successful:', this.email, this.password);
-    this.toastr.success('Login successful!', 'Welcome!');
-    this.router.navigate(['/home']); // Redirect to Home page
+    // Mock role-based login functionality
+    if (this.email === 'aziz' && this.password === 'aziz') {
+      this.toastr.success('Login successful!', 'Welcome Delivery User!');
+      this.router.navigate(['/home']);
+    } else if (this.email === 'admin' && this.password === 'admin') {
+      this.toastr.success('Login successful!', 'Welcome Admin!');
+      this.router.navigate(['/admin']);
+    } else {
+      this.toastr.error('Invalid email or password!', 'Login Failed');
+    }
   }
 }

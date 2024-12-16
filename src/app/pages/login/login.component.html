@@ -1,5 +1,5 @@
-<div class="auth-container">  
-  <form (ngSubmit)="onLogin()">
+<div class="auth-container">
+  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
     <div class="form-group">
       <label for="email">Email</label>
       <input
@@ -22,10 +22,10 @@
         required
       />
     </div>
-    <button type="submit" class="btn">Login</button>
+    <button type="submit" class="btn" [disabled]="!loginForm.valid">Login</button>
   </form>
-  <p class="P1">Forget Password</p>
+  <p class="P1">
+    <a routerLink="/forget-password">Forget Password</a>
+  </p>
   <h5>Don't have an account? <a routerLink="/signup">Register</a></h5>
-
 </div>
-
